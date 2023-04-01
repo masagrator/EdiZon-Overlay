@@ -334,7 +334,8 @@ namespace edz::cheat {
 
         Result res;
 
-        CheatManager::forceAttach();
+        if (!CheatManager::hasCheatProcess())
+            CheatManager::forceAttach();
 
         // Delete local cheats copy if there are any
         for (auto &cheat : CheatManager::s_cheats)
